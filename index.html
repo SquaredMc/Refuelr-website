@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Refuelr — Find the cheapest fuel near you | UK petrol and diesel prices</title>
+<meta name="description" content="Refuelr maps the latest UK forecourt prices around you, highlights the cheapest petrol or diesel, and shows what you could save on a full tank. Free, no account needed.">
+<link rel="canonical" href="https://squaredmc.github.io/Refuelr-website/">
+<meta name="theme-color" content="#15181f">
+<!-- Preview only: remove before launch so search engines can index the site -->
+<meta name="robots" content="noindex">
+<!-- TODO: uncomment once the App Store ID exists -->
+<!-- <meta name="apple-itunes-app" content="app-id=APP_STORE_ID"> -->
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Refuelr — Find the cheapest fuel near you">
+<meta property="og:description" content="The latest UK fuel prices around you on one map, with the cheapest picked out and your saving per tank in pounds.">
+<meta property="og:url" content="https://squaredmc.github.io/Refuelr-website/">
+<meta property="og:site_name" content="Refuelr">
+<meta property="og:locale" content="en_GB">
+<meta property="og:image" content="https://squaredmc.github.io/Refuelr-website/assets/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Refuelr: find the cheapest fuel near you, with a map of nearby fuel prices">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Refuelr — Find the cheapest fuel near you">
+<meta name="twitter:description" content="The latest UK fuel prices around you on one map, with the cheapest picked out and your saving per tank in pounds.">
+<meta name="twitter:image" content="https://squaredmc.github.io/Refuelr-website/assets/og-image.png">
+
+<link rel="icon" type="image/svg+xml" href="assets/icons/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/icons/favicon-32.png">
+<link rel="apple-touch-icon" href="assets/icons/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Raleway:wght@800&family=Rubik:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="css/tokens.css">
+<link rel="stylesheet" href="css/styles.css">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "SoftwareApplication",
+  "name": "Refuelr",
+  "operatingSystem": "iOS",
+  "applicationCategory": "TravelApplication",
+  "url": "https://squaredmc.github.io/Refuelr-website/",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "GBP"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "SQUAREDMC LTD",
+    "url": "https://squaredmc.com/"
+  },
+  "description": "Refuelr shows the latest UK fuel prices for stations near you, highlights the cheapest, and estimates your saving per tank against the local average."
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Is Refuelr free?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Yes. Refuelr is free and shows a small banner ad. No account or subscription." }
+    },
+    {
+      "@type": "Question",
+      "name": "Where do the prices come from?",
+      "acceptedAnswer": { "@type": "Answer", "text": "From the UK Government's Fuel Finder scheme, which requires fuel retailers to report their pump prices. Contains public sector information licensed under the Open Government Licence v3.0." }
+    },
+    {
+      "@type": "Question",
+      "name": "How up to date are the prices?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Retailers must report a price change to Fuel Finder within 30 minutes, and Refuelr refreshes its prices from Fuel Finder every few hours. Prices can change at any time, so always check the pump before you fill up." }
+    },
+    {
+      "@type": "Question",
+      "name": "Which fuels does Refuelr cover?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Unleaded (E10), super unleaded (E5) and diesel. Premium diesel isn't shown yet." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does it work everywhere in the UK?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Refuelr covers forecourts across the UK that report to Fuel Finder. Use your location or search any postcode or town. If there are only a few stations nearby, it automatically searches further afield." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you track my location?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Refuelr uses your location only while the app is open, to find stations near you. It's rounded to about 100 metres before it's sent, and it's never saved to our database or used to build a history of where you've been. Ads in the app come from Google, which can use approximate location based on your IP address. Our Privacy Policy has the details." }
+    },
+    {
+      "@type": "Question",
+      "name": "Do I need an account?",
+      "acceptedAnswer": { "@type": "Answer", "text": "No. Install it and open the map." }
+    },
+    {
+      "@type": "Question",
+      "name": "A price looks wrong. What should I do?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Email hello@squaredmc.com with the station name, the town, the fuel, the price you saw and when you saw it, and we'll look into it." }
+    },
+    {
+      "@type": "Question",
+      "name": "How is the saving worked out?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Refuelr takes the average price for your fuel across all the stations in your search area, subtracts the station's price, and multiplies the difference by your tank size. If you haven't set a car size, it uses 50 litres." }
+    },
+    {
+      "@type": "Question",
+      "name": "Does Refuelr show EV charging?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not at the moment." }
+    },
+    {
+      "@type": "Question",
+      "name": "Is Refuelr available on Android?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Not yet. Refuelr is iOS only for now." }
+    },
+    {
+      "@type": "Question",
+      "name": "How do I get support?",
+      "acceptedAnswer": { "@type": "Answer", "text": "Email hello@squaredmc.com or visit our support page." }
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header>
+  <div class="wrap nav">
+    <a class="logo" href="#top" aria-label="Refuelr home">
+      <img src="assets/icons/logo.svg" alt="Refuelr" width="163" height="28">
+    </a>
+    <nav aria-label="Primary">
+      <ul class="nav-links">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#case-study">Worked example</a></li>
+        <li><a href="#free">Free</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#about">About</a></li>
+      </ul>
+    </nav>
+    <div class="nav-cta">
+      <a class="btn btn-lg btn-primary" href="#download">Get the app</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="mobile-nav">
+        <span></span>
+      </button>
+    </div>
+  </div>
+  <nav id="mobile-nav" class="mobile-nav" aria-label="Mobile">
+    <ul>
+      <li><a href="#how-it-works">How it works</a></li>
+      <li><a href="#case-study">Worked example</a></li>
+      <li><a href="#free">Free</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <a class="btn btn-lg btn-primary" href="#download">Get the app</a>
+  </nav>
+</header>
+
+<main id="main">
+  <span id="top"></span>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-copy">
+        <span class="eyebrow">UK fuel prices, nearby</span>
+        <h1>Find the cheapest fuel near you.</h1>
+        <p class="hero-sub">Refuelr maps the latest prices around you, highlights the cheapest station for your fuel, and shows what you could save on a full tank.</p>
+        <div class="hero-ctas">
+          <!-- TODO: when live, swap this span for <a class="app-store-badge btn" href="https://apps.apple.com/gb/app/refuelr/idAPP_STORE_ID"> and drop is-soon -->
+          <span class="app-store-badge btn is-soon">
+            <svg viewBox="-2.5 1 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 1.43c0 1.14-.462 2.09-1.386 2.856-.923.766-1.918 1.19-2.986 1.13-.077-1.11.362-2.14 1.234-2.9.874-.76 1.98-1.29 3.138-1.35.001.088 0 .176 0 .264zM20.66 17.7c-.494 1.14-1.09 2.2-1.788 3.18-.955 1.33-1.735 2.25-2.336 2.75-.93.83-1.928 1.26-2.998 1.28-.77.02-1.7-.22-2.79-.72-1.09-.5-2.09-.73-3.005-.73-.96 0-1.99.23-3.09.73-1.1.5-1.99.75-2.68.77-1.03.04-2.05-.4-3.06-1.32-.65-.53-1.47-1.49-2.44-2.87C-1.44 19.24-2 17.5-2 15.63c0-2.14.58-3.98 1.75-5.53 1.03-1.35 2.39-2.03 4.08-2.06.72-.02 1.66.24 2.83.79 1.16.55 1.9.82 2.24.82.24 0 1.05-.32 2.42-.95 1.3-.58 2.4-.82 3.28-.72 2.42.2 4.24 1.15 5.45 2.86-2.16 1.31-3.24 3.15-3.22 5.5.02 1.83.68 3.36 1.98 4.56.59.56 1.24.98 1.97 1.28-.16.46-.33.9-.52 1.32z"/></svg>
+            <span class="badge-text"><small>Coming soon to the</small><strong>App Store</strong></span>
+          </span>
+          <a class="btn btn-lg btn-outline" href="#case-study">See what you could save ↓</a>
+        </div>
+        <p class="hero-support">Free to use. No account needed.</p>
+      </div>
+      <div class="hero-visual">
+        <div class="phone-frame">
+          <img src="assets/screenshots/hero.png" alt="Refuelr map of Croydon with fuel prices on pins. The cheapest station, Sainsbury's Purley Way at £1.709 a litre, is highlighted and saves 4.2p a litre against the area average, about £2.10 a tank." width="640" height="1146" loading="eager">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Value props -->
+  <section id="value-props">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">Why Refuelr</span>
+        <h2>The questions the price sign doesn't answer.</h2>
+      </div>
+      <div class="card-grid">
+        <div class="value-card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>
+          </div>
+          <h3>Where's the cheapest fuel near me?</h3>
+          <p>Every nearby station's price for your fuel, on a map and in a list, with the cheapest picked out.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="5" cy="19" r="2"/><circle cx="19" cy="5" r="2"/><path d="M7 19h8.5a3.5 3.5 0 0 0 0-7h-7a3.5 3.5 0 0 1 0-7H17"/></svg>
+          </div>
+          <h3>Is it worth the detour?</h3>
+          <p>See how far away a cheaper station is before you change your route.</p>
+        </div>
+        <div class="value-card">
+          <div class="icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16.5 6.5A4 4 0 0 0 9 8.5V13c0 2.5-1 4.5-3 5.5h12"/><path d="M6 12.5h8"/></svg>
+          </div>
+          <h3>How much am I actually saving?</h3>
+          <p>Refuelr compares each price with the local average and shows the saving on your tank, in pounds.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How it works -->
+  <section id="how-it-works" class="band">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">How it works</span>
+        <h2>Three steps to a cheaper fill-up.</h2>
+      </div>
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-shot">
+            <img src="assets/screenshots/step-1-car-setup.png" alt="Refuelr car setup: Unleaded E10 chosen as the fuel and Medium as the car size, about 50 litres, with a Get started button" width="882" height="731" loading="lazy">
+          </div>
+          <span class="step-number">1</span>
+          <h3>Tell us about your car</h3>
+          <p>Pick your fuel and your car's size. It takes ten seconds and stays on your phone.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-shot">
+            <img src="assets/screenshots/step-2-map.png" alt="Refuelr map showing unleaded prices on pins around Croydon, with the cheapest, £1.709, highlighted in green" width="882" height="731" loading="lazy">
+          </div>
+          <span class="step-number">2</span>
+          <h3>Open the map</h3>
+          <p>Prices for stations around you, with the cheapest one highlighted.</p>
+        </div>
+        <div class="step-card">
+          <div class="step-shot">
+            <img src="assets/screenshots/step-3-saving.png" alt="Refuelr station card for Sainsbury's Purley Way at £1.709, saving 4.2p a litre against the area average, about £2.10 a tank, with a Route here button" width="882" height="731" loading="lazy">
+          </div>
+          <span class="step-number">3</span>
+          <h3>Fill up and save</h3>
+          <p>Tap a station to see its saving against the local average, then tap Route here for directions in Apple Maps.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Worked example -->
+  <section id="case-study" class="case-study">
+    <div class="wrap">
+      <div class="case-study-copy">
+        <span class="eyebrow">Worked example</span>
+        <h2>Is a cheaper station worth the drive?</h2>
+        <p>A common question with a simple answer. Here's how it plays out for a typical family car.</p>
+        <p>The scenario: a 55-litre tank, a local average of 175.9p a litre, and a station selling at 169.9p that's a 2-mile detour, in a car doing about 45mpg.</p>
+        <p>The extra 2 miles uses around 0.2 litres of fuel, about 34p. The cheaper price saves £3.30 on a full tank. So the detour costs pennies while the cheaper price saves pounds, and if you fill up every week, that's over £150 a year.</p>
+        <p>Refuelr shows the saving per tank for every station near you, so you can make that call before you set off.</p>
+        <a class="btn btn-lg btn-primary" href="#download">Try it near you</a>
+      </div>
+      <div class="breakdown-table">
+        <table>
+          <caption>Detour breakdown</caption>
+          <thead>
+            <tr><th scope="col">Item</th><th scope="col">Amount</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Saving on a full tank (6p × 55 litres)</td><td>£3.30</td></tr>
+            <tr class="negative"><td>Fuel used on a 2-mile detour</td><td>−£0.34</td></tr>
+            <tr class="total"><td>You keep per fill-up</td><td>£2.96</td></tr>
+            <tr class="annual"><td>Filling up weekly, per year</td><td>≈ £154</td></tr>
+          </tbody>
+        </table>
+        <p class="disclaimer">Illustrative figures. Prices change through the day, and Refuelr refreshes them from Fuel Finder every few hours, so always check the pump before you fill up.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Free (replaces Netti's Pro offer block) -->
+  <section id="free" class="offer-panel">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Free</span>
+        <h2>Free to use, paid for by one small ad.</h2>
+        <p class="body-copy">Everything Refuelr does is free. A small banner ad at the bottom of the screen pays for it.</p>
+        <a class="btn btn-lg btn-primary" href="#download">Get Refuelr</a>
+      </div>
+      <ul class="offer-features">
+        <li><span class="check" aria-hidden="true">✓</span> No account</li>
+        <li><span class="check" aria-hidden="true">✓</span> No subscription</li>
+        <li><span class="check" aria-hidden="true">✓</span> Every nearby price</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section id="faq">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Common questions.</h2>
+      </div>
+      <div class="faq-list">
+        <details class="faq-item">
+          <summary>Is Refuelr free?</summary>
+          <p>Yes. Refuelr is free and shows a small banner ad. No account or subscription.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Where do the prices come from?</summary>
+          <p>From the UK Government's <a href="https://www.gov.uk/guidance/fuel-finder" target="_blank" rel="noopener">Fuel Finder</a> scheme, which requires fuel retailers to report their pump prices. Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How up to date are the prices?</summary>
+          <p>Retailers must report a price change to Fuel Finder within 30 minutes, and Refuelr refreshes its prices from Fuel Finder every few hours. Prices can change at any time, so always check the pump before you fill up.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Which fuels does Refuelr cover?</summary>
+          <p>Unleaded (E10), super unleaded (E5) and diesel. Premium diesel isn't shown yet.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does it work everywhere in the UK?</summary>
+          <p>Refuelr covers forecourts across the UK that report to Fuel Finder. Use your location or search any postcode or town. If there are only a few stations nearby, it automatically searches further afield.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do you track my location?</summary>
+          <p>Refuelr uses your location only while the app is open, to find stations near you. It's rounded to about 100 metres before it's sent, and it's never saved to our database or used to build a history of where you've been. Ads in the app come from Google, which can use approximate location based on your IP address. Our <a href="privacy.html">Privacy Policy</a> has the details.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need an account?</summary>
+          <p>No. Install it and open the map.</p>
+        </details>
+        <details class="faq-item">
+          <summary>A price looks wrong. What should I do?</summary>
+          <p>Email <a href="mailto:hello@squaredmc.com">hello@squaredmc.com</a> with the station name, the town, the fuel, the price you saw and when you saw it, and we'll look into it. Our <a href="support.html">support page</a> has more on what to include.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How is the saving worked out?</summary>
+          <p>Refuelr takes the average price for your fuel across all the stations in your search area, subtracts the station's price, and multiplies the difference by your tank size. If you haven't set a car size, it uses 50 litres.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Does Refuelr show EV charging?</summary>
+          <p>Not at the moment.</p>
+        </details>
+        <details class="faq-item">
+          <summary>Is Refuelr available on Android?</summary>
+          <p>Not yet. Refuelr is iOS only for now.</p>
+        </details>
+        <details class="faq-item">
+          <summary>How do I get support?</summary>
+          <p>Email <a href="mailto:hello@squaredmc.com">hello@squaredmc.com</a> or visit our <a href="support.html">support page</a>.</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- Download CTA -->
+  <section id="download" class="download-cta band">
+    <div class="wrap">
+      <span class="eyebrow">Get started</span>
+      <h2>Download Refuelr, free.</h2>
+      <p>Coming soon to iOS.</p>
+      <div class="hero-ctas">
+        <!-- TODO: when live, swap for a link to the App Store listing (see hero) -->
+        <span class="app-store-badge btn is-soon">
+          <svg viewBox="-2.5 1 24 24" aria-hidden="true"><path fill="currentColor" d="M16.365 1.43c0 1.14-.462 2.09-1.386 2.856-.923.766-1.918 1.19-2.986 1.13-.077-1.11.362-2.14 1.234-2.9.874-.76 1.98-1.29 3.138-1.35.001.088 0 .176 0 .264zM20.66 17.7c-.494 1.14-1.09 2.2-1.788 3.18-.955 1.33-1.735 2.25-2.336 2.75-.93.83-1.928 1.26-2.998 1.28-.77.02-1.7-.22-2.79-.72-1.09-.5-2.09-.73-3.005-.73-.96 0-1.99.23-3.09.73-1.1.5-1.99.75-2.68.77-1.03.04-2.05-.4-3.06-1.32-.65-.53-1.47-1.49-2.44-2.87C-1.44 19.24-2 17.5-2 15.63c0-2.14.58-3.98 1.75-5.53 1.03-1.35 2.39-2.03 4.08-2.06.72-.02 1.66.24 2.83.79 1.16.55 1.9.82 2.24.82.24 0 1.05-.32 2.42-.95 1.3-.58 2.4-.82 3.28-.72 2.42.2 4.24 1.15 5.45 2.86-2.16 1.31-3.24 3.15-3.22 5.5.02 1.83.68 3.36 1.98 4.56.59.56 1.24.98 1.97 1.28-.16.46-.33.9-.52 1.32z"/></svg>
+          <span class="badge-text"><small>Coming soon to the</small><strong>App Store</strong></span>
+        </span>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="about">
+    <div class="wrap">
+      <span class="eyebrow">About</span>
+      <h2>Built in the UK by SquaredMc.</h2>
+      <p>Refuelr is made by Lawrence and Jon at SquaredMc, a small UK app studio.</p>
+      <p>Fuel prices can vary by several pence a litre within a few miles. Since February 2026, UK forecourts have had to report their prices through the government's Fuel Finder scheme, which makes that difference visible for the first time. Refuelr puts it on a map, so you can see it before you fill up.</p>
+      <p class="sibling">Refuelr is built by <a href="https://squaredmc.com/" target="_blank" rel="noopener">SquaredMc</a>. See what else we're working on, including <a href="https://netti-app.com/" target="_blank" rel="noopener">Netti</a>, our UK take-home pay calculator.</p>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-top">
+      <a class="logo" href="#top" aria-label="Refuelr home">
+        <img src="assets/icons/logo.svg" alt="Refuelr" width="163" height="28">
+      </a>
+      <ul class="footer-links">
+        <li><a href="#how-it-works">How it works</a></li>
+        <li><a href="#free">Free</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="support.html">Support</a></li>
+        <li><a href="privacy.html">Privacy Policy</a></li>
+        <li><a href="terms.html">Terms of Use</a></li>
+        <li><a href="privacy.html#contact-us">Contact</a></li>
+      </ul>
+    </div>
+    <hr class="footer-divider">
+    <p class="footer-bottom">© 2026 Refuelr, built by SquaredMc. Prices are reported by retailers and can change before you arrive. Refuelr does not guarantee any saving. Fuel price data contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.</p>
+    <p class="footer-bottom">SQUAREDMC LTD · Registered in England and Wales, company number 16175464 · Registered office: 17 Poole Road, Epsom, KT19 9SQ</p>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
