@@ -148,49 +148,26 @@ p {
   border-color: var(--rf-color-accent);
 }
 
-/* App Store badge. While the app isn't live this is a <span>, not a link. */
-.app-store-badge {
-  gap: var(--rf-space-12);
-  min-height: 52px;
-  padding: var(--rf-space-8) var(--rf-space-20);
-  border-radius: var(--rf-radius-segment);
-  background: var(--rf-color-ink);
-  color: var(--rf-color-deep);
-  text-align: left;
-}
-
-.app-store-badge svg {
-  width: 22px;
-  height: 22px;
-  flex: none;
-}
-
-.app-store-badge .badge-text {
-  display: flex;
-  flex-direction: column;
-  line-height: 1.15;
-}
-
-.app-store-badge .badge-text small {
-  font-size: 11px;
-  font-weight: var(--rf-font-weight-medium);
-}
-
-.app-store-badge .badge-text strong {
-  font-size: 17px;
-  font-weight: var(--rf-font-weight-semibold);
-}
-
-.app-store-badge.is-soon {
+/* Pre-launch: plain text, no Apple artwork. Apple's badge may only be used once
+   the app is on the App Store, and it can't be modified to say "Coming soon". */
+.coming-soon {
   cursor: default;
   background: var(--rf-color-surface-2);
   color: var(--rf-color-ink);
   border: 1px solid var(--rf-color-line);
 }
 
-.app-store-badge.is-soon:hover {
-  transform: none;
-  box-shadow: none;
+/* At launch: Apple's official badge (assets/icons/app-store-badge.svg), unmodified.
+   Apple's rules: at least 40px tall, clear space of a quarter of its height. */
+.app-store-badge {
+  display: inline-block;
+  line-height: 0;
+  border-radius: var(--rf-radius-md);
+}
+
+.app-store-badge img {
+  height: 52px;
+  width: auto;
 }
 
 /* Header / nav */

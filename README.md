@@ -54,6 +54,6 @@ GitHub Pages serves the root of `main`. Pushing to `main` publishes the site.
   ```
 - **Search indexing**: remove the `<meta name="robots" content="noindex">` preview tag from `index.html`, `privacy.html`, `terms.html` and `support.html`.
 - **Server log retention**: replace the two `[N]` placeholders in `privacy.html` (search for `class="todo"`) with your Supabase plan's log retention in days.
-- **App Store link**: when Refuelr is live, swap the two "Coming soon" badges in `index.html` for links to the App Store listing, and uncomment the `apple-itunes-app` meta tag.
+- **App Store badge**: Apple's rules only allow its badge for apps that are on the App Store, so the site shows a plain "Coming soon to the App Store" button for now. Apple's official black badge is already in `assets/icons/app-store-badge.svg` (downloaded unmodified from developer.apple.com). At launch, swap the two `coming-soon` spans in `index.html` for the commented-out badge link above each one, put in the App Store ID, and uncomment the `apple-itunes-app` meta tag. Don't edit the badge artwork, and keep it at least 40px tall.
 - **Legal review**: `privacy.html` and `terms.html` were drafted with AI assistance. Have a solicitor review them before launch.
 - **Last updated** dates on the legal pages should match the publish date.
