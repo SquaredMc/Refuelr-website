@@ -35,12 +35,12 @@
 
 <a class="skip-link" href="#main">Skip to content</a>
 
-<header>
-  <div class="wrap nav">
+<header class="site-header">
+  <div class="wrap header-row">
     <a class="logo" href="index.html" aria-label="Refuelr home">
       <img src="assets/icons/logo.svg" alt="Refuelr" width="163" height="28">
     </a>
-    <a class="btn btn-lg btn-primary" href="index.html#download">Get the app</a>
+    <a class="btn btn-secondary btn-small" href="index.html#download">Get the app</a>
   </div>
 </header>
 
@@ -57,10 +57,10 @@
     <div class="legal-wrap">
 
       <h2>Email us</h2>
-      <div class="contact-card">
+      <div class="contact-card" id="contact">
         <p>For questions, problems or feedback, email:</p>
         <p class="email">hello@squaredmc.com</p>
-        <p><a class="btn btn-lg btn-primary" href="mailto:hello@squaredmc.com?subject=Refuelr%20support">Write an email</a></p>
+        <p><a class="btn btn-primary" href="mailto:hello@squaredmc.com?subject=Refuelr%20support">Write an email</a></p>
       </div>
       <p>It helps if you tell us your iPhone model, your iOS version, and what you were doing when the problem happened.</p>
 
@@ -120,25 +120,27 @@
   </div>
 </main>
 
-<footer>
+<footer class="site-footer">
   <div class="wrap">
-    <div class="footer-top">
+    <div class="footer-row">
       <a class="logo" href="index.html" aria-label="Refuelr home">
         <img src="assets/icons/logo.svg" alt="Refuelr" width="163" height="28">
       </a>
-      <ul class="footer-links">
-        <li><a href="index.html#how-it-works">How it works</a></li>
-        <li><a href="index.html#free">Free</a></li>
-        <li><a href="index.html#faq">FAQ</a></li>
-        <li><a href="support.html">Support</a></li>
-        <li><a href="privacy.html">Privacy Policy</a></li>
-        <li><a href="terms.html">Terms of Use</a></li>
-        <li><a href="privacy.html#contact-us">Contact</a></li>
-      </ul>
+      <nav aria-label="Footer">
+        <ul class="footer-links">
+          <li><a href="index.html#how">How it works</a></li>
+          <li><a href="index.html#faq">FAQ</a></li>
+          <li><a href="support.html">Support</a></li>
+          <li><a href="privacy.html">Privacy Policy</a></li>
+          <li><a href="terms.html">Terms of Use</a></li>
+          <li><a href="support.html#contact">Contact</a></li>
+        </ul>
+      </nav>
     </div>
-    <hr class="footer-divider">
-    <p class="footer-bottom">© 2026 Refuelr, built by SquaredMc. Prices are reported by retailers and can change before you arrive. Refuelr does not guarantee any saving. Fuel price data contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.</p>
-    <p class="footer-bottom">SQUAREDMC LTD · Registered in England and Wales, company number 16175464 · Registered office: 17 Poole Road, Epsom, KT19 9SQ</p>
+    <div class="footer-legal">
+      <p>Fuel price data: Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.</p>
+      <p>© 2026 Refuelr, built by SquaredMc Ltd. Registered in England and Wales, company no. 16175464. Registered office: 17 Poole Road, Epsom, KT19 9SQ. Prices are reported by retailers and can change before you arrive. Refuelr does not guarantee any saving.</p>
+    </div>
   </div>
 </footer>
 

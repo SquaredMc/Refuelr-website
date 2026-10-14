@@ -71,10 +71,20 @@
   --rf-font-line-height-h3: 28px;
   --rf-font-line-height-md-sb: 28px;
 
-  /* Marketing-site-only tokens (same values as the Netti site) */
-  --rf-web-maxw: 1180px;
+  /* Marketing-site-only tokens */
+  --rf-web-maxw: 1248px;             /* includes the 48px side gutters */
   --rf-web-maxw-legal: 760px;
   --rf-web-section-y: 96px;
   --rf-web-section-y-sm: 56px;
-  --rf-color-bg-alt: #101318;        /* alternate section band, between deep and bg */
+  --rf-color-bg-alt: #181b23;        /* alternate section band and map background */
+
+  /* Homepage design (Claude Design, Homepage — 1440) */
+  --rf-color-divider: #222731;       /* header, footer and band rules */
+  --rf-color-line-subtle: #262b35;   /* rules inside illustrations */
+  --rf-color-line-strong: #4b5360;   /* secondary button hover */
+  --rf-color-footer: #111318;
+  --rf-color-accent-hover: #63ee88;
+  --rf-color-location: #2e8bff;      /* "you are here" dot */
+  --rf-color-bezel: #0b0d11;         /* phone frames */
+  --rf-color-board: #0d0f13;         /* forecourt price board */
 }
