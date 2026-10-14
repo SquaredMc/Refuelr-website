@@ -84,6 +84,7 @@
   --rf-color-line-strong: #4b5360;   /* secondary button hover */
   --rf-color-footer: #111318;
   --rf-color-accent-hover: #63ee88;
+  --rf-color-callout: #1c1f27;        /* station card, as in the app */
   --rf-color-location: #2e8bff;      /* "you are here" dot */
   --rf-color-bezel: #0b0d11;         /* phone frames */
   --rf-color-board: #0d0f13;         /* forecourt price board */

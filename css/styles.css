@@ -78,14 +78,14 @@ img {
 }
 
 .eyebrow {
+  position: relative;
   display: flex;
   align-items: center;
-  gap: 10px;
+  gap: var(--rf-space-12);
   margin: 0;
-  font-size: var(--rf-font-size-sm);
-  font-weight: var(--rf-font-weight-semibold);
-  letter-spacing: 1.6px;
-  text-transform: uppercase;
+  font-size: var(--rf-font-size-md);
+  font-weight: var(--rf-font-weight-medium);
+  line-height: 20px;
   color: var(--rf-color-ink-sub);
 }
 
@@ -372,6 +372,52 @@ p {
   margin-bottom: 56px;
 }
 
+/* Route line: a dotted line down the left gutter, with a node at each section
+   label. It runs through the section padding (--pad) so the sections join up. */
+.route {
+  position: relative;
+  --pad: 120px;
+  --node-bg: var(--rf-color-bg);
+  --node-x: -35px;
+}
+
+.band .route {
+  --node-bg: var(--rf-color-bg-alt);
+}
+
+.route::before {
+  content: '';
+  position: absolute;
+  left: var(--rf-space-20);
+  top: calc(-1 * var(--pad));
+  bottom: calc(-1 * var(--pad));
+  width: 3px;
+  border-radius: 2px;
+  background: repeating-linear-gradient(to bottom, #3a414c 0 3px, transparent 3px 12px);
+  pointer-events: none;
+}
+
+.route-first::before {
+  top: 10px;
+}
+
+.route .eyebrow::before {
+  content: '';
+  position: absolute;
+  left: var(--node-x);
+  top: 2px;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--node-bg);
+  border: 3px solid var(--rf-color-ink-sub);
+}
+
+/* The Pricing label sits inside the card, so step back over its padding and border */
+.free-card .eyebrow::before {
+  left: calc(var(--node-x) - 57px);
+}
+
 .grid3 {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -503,10 +549,11 @@ p {
 .hero-copy {
   position: relative;
   z-index: 4;
-  padding: 28px var(--rf-space-48) 0;
+  padding: 56px var(--rf-space-48) 0;
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: var(--rf-space-16);
   text-align: center;
 }
 
@@ -531,12 +578,6 @@ p {
   justify-content: center;
   gap: var(--rf-space-12);
   margin-top: 30px;
-}
-
-.hero-note {
-  margin-top: var(--rf-space-16);
-  font-size: var(--rf-font-size-sm);
-  color: var(--rf-color-ink-mute);
 }
 
 .hero-stage {
@@ -579,15 +620,6 @@ p {
   box-shadow: 0 6px 16px rgba(0, 0, 0, 0.45);
 }
 
-.hero-pins .tag-cheap {
-  font-size: 21px;
-}
-
-.hero-pins .tag-cheap .tag-body {
-  gap: 0.38em;
-  box-shadow: 0 10px 34px rgba(62, 227, 107, 0.5);
-}
-
 .hero-pins .you-are-here::before {
   left: -20px;
   top: -14px;
@@ -599,13 +631,35 @@ p {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5);
 }
 
-.tag-pulse {
+.hero-marker {
   position: absolute;
-  inset: -6px;
-  border-radius: 20px;
-  border: 2px solid var(--rf-color-accent);
+  width: 18px;
+  height: 18px;
+  margin: -9px 0 0 -9px;
+  transform: scale(var(--k, 1));
+}
+
+.marker-pulse,
+.marker-dot {
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+}
+
+.marker-pulse {
+  background: rgba(62, 227, 107, 0.45);
   opacity: 0;
-  animation: pulse 2.6s ease-out 2.4s infinite;
+  animation: marker-pulse 2.4s cubic-bezier(0.2, 0.6, 0.3, 1) 1.6s infinite;
+}
+
+.marker-pulse + .marker-pulse {
+  animation-delay: 2.8s;
+}
+
+.marker-dot {
+  background: var(--rf-color-accent);
+  border: 3px solid var(--rf-color-bg);
+  box-shadow: 0 0 0 2px var(--rf-color-accent), 0 6px 18px rgba(62, 227, 107, 0.45);
 }
 
 .pin-in {
@@ -628,10 +682,9 @@ p {
   100% { opacity: 1; translate: 0 0; }
 }
 
-@keyframes pulse {
-  0% { transform: scale(0.92); opacity: 0.8; }
-  70% { transform: scale(1.28); opacity: 0; }
-  100% { transform: scale(1.28); opacity: 0; }
+@keyframes marker-pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  100% { transform: scale(3.4); opacity: 0; }
 }
 
 .hero-fog {
@@ -670,20 +723,36 @@ p {
   color: var(--rf-color-ink-sub);
 }
 
-/* Sits just below the cheapest pin (see js/main.js), and stays clear of the left edge */
+/* The cheapest station's callout: centred under its marker (see js/main.js),
+   pointer on the marker, and clear of the page edges */
 .hero-card {
   position: absolute;
   z-index: 4;
   width: 360px;
-  left: max(24px, calc(50% - 224px));
+  left: clamp(24px, calc(50% - 114px), calc(100% - 384px));
   top: 629px;
+}
+
+.hero-card::before {
+  content: '';
+  position: absolute;
+  left: 50%;
+  top: -10px;
+  width: 18px;
+  height: 18px;
+  margin-left: -9px;
+  background: var(--rf-color-callout);
+  border-left: 1px solid var(--rf-color-line);
+  border-top: 1px solid var(--rf-color-line);
+  border-radius: 4px 0 0 0;
+  transform: rotate(45deg);
 }
 
 /* Station card, as in the app */
 .station-card {
   padding: var(--rf-space-16);
   border-radius: var(--rf-radius-pill);
-  background: rgba(28, 30, 38, 0.97);
+  background: var(--rf-color-callout);
   border: 1px solid var(--rf-color-line);
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6);
   text-align: left;
@@ -810,17 +879,22 @@ p {
   font-size: 17px;
 }
 
-/* Drawn at its natural size from the centre, so the markers stay on the route */
+/* The route is drawn from the card's centre, up to 300px wide, and the
+   markers are placed along it with the same --d */
+.vis-detour {
+  --d: min(150px, 50%);
+}
+
 .vis > .vis-route {
-  left: 50%;
-  width: 360px;
-  margin-left: -180px;
+  left: calc(50% - var(--d));
+  width: calc(var(--d) * 2);
 }
 
 .distance-chip {
   position: absolute;
-  left: calc(50% - 30px);
-  top: 82px;
+  left: calc(50% - var(--d) * 0.12);
+  top: 86px;
+  transform: translateX(-50%);
   padding: 4px 10px;
   border-radius: var(--rf-radius-full);
   background: var(--rf-color-surface-2);
@@ -1045,7 +1119,7 @@ p {
   color: rgba(255, 255, 255, 0.8);
 }
 
-/* Steps 2 and 3: map */
+/* Step 3: map */
 .app-search {
   position: absolute;
   left: 10px;
@@ -1063,25 +1137,6 @@ p {
   font-weight: var(--rf-font-weight-medium);
 }
 
-.app-fuel {
-  position: absolute;
-  left: 14px;
-  top: 64px;
-  display: flex;
-  align-items: center;
-  gap: 4px;
-  font-size: 7px;
-  color: var(--rf-color-ink-mute);
-}
-
-.app-fuel::before {
-  content: '';
-  width: 4px;
-  height: 4px;
-  border-radius: 50%;
-  background: var(--rf-color-accent);
-}
-
 .app-you {
   position: absolute;
   left: 75px;
@@ -1097,7 +1152,7 @@ p {
 .app-card {
   position: absolute;
   left: 8px;
-  bottom: 99px;
+  bottom: 62px;
   width: 360px;
   transform: scale(0.6222);
   transform-origin: 0 100%;
@@ -1105,23 +1160,6 @@ p {
 
 .app-card .btn-primary {
   box-shadow: none;
-}
-
-.app-ad {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 54px;
-  height: 37px;
-  background: #0f1116;
-  border-top: 1px solid var(--rf-color-line-subtle);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 7.5px;
-  letter-spacing: 0.6px;
-  text-transform: uppercase;
-  color: var(--rf-color-ink-mute);
 }
 
 .app-tabs {
@@ -1151,7 +1189,255 @@ p {
   color: var(--rf-color-accent);
 }
 
-/* Free */
+/* Step 2: the Prices list, drawn at the app's 390pt width and scaled to the screen */
+.prices {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 390px;
+  height: 845px;
+  transform: scale(0.61538);
+  transform-origin: 0 0;
+}
+
+.prices-head {
+  padding: 54px var(--rf-space-20) 0;
+}
+
+.prices-title {
+  font-size: 30px;
+  font-weight: var(--rf-font-weight-semibold);
+  letter-spacing: -1px;
+}
+
+.prices-search {
+  margin-top: 14px;
+  height: 50px;
+  padding: 0 14px;
+  border-radius: var(--rf-space-16);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-line);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.prices-search span {
+  flex: 1;
+  font-size: 15px;
+  font-weight: var(--rf-font-weight-medium);
+  letter-spacing: -0.2px;
+}
+
+.prices-fuels {
+  margin-top: var(--rf-space-12);
+  display: flex;
+  align-items: center;
+  gap: var(--rf-space-8);
+  font-size: 12.5px;
+  font-weight: var(--rf-font-weight-semibold);
+}
+
+.prices-fuels > span:not(.prices-filter) {
+  padding: 6px 11px;
+  border-radius: var(--rf-radius-full);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-line);
+  color: var(--rf-color-ink-sub);
+}
+
+.prices-fuels > span.is-on {
+  background: var(--rf-color-accent);
+  border-color: var(--rf-color-accent);
+  color: var(--rf-color-accent-ink);
+}
+
+.prices-filter {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--rf-color-ink-sub);
+}
+
+.prices-best {
+  margin: 14px var(--rf-space-20) 0;
+  padding: 18px;
+  border-radius: var(--rf-radius-pill);
+  background: var(--rf-color-surface);
+  border: 1.5px solid rgba(62, 227, 107, 0.65);
+  box-shadow: 0 8px 28px rgba(62, 227, 107, 0.2);
+}
+
+.prices-best .prices-station {
+  padding: 0;
+  gap: var(--rf-space-12);
+}
+
+.prices-best .brand {
+  width: 36px;
+  height: 36px;
+  border-radius: 9px;
+  font-size: 13px;
+}
+
+.prices-best .prices-name {
+  font-size: 15px;
+}
+
+.prices-best .prices-name small {
+  margin-top: 2px;
+  font-size: var(--rf-font-size-caption);
+}
+
+.prices-best-foot {
+  margin-top: 18px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+}
+
+.prices-delta {
+  margin-bottom: 6px;
+  padding: 6px var(--rf-space-12);
+  border-radius: 10px;
+  background: var(--rf-color-accent-soft);
+  color: var(--rf-color-accent);
+  font-size: 13px;
+  font-weight: var(--rf-font-weight-semibold);
+}
+
+.prices-stats {
+  display: flex;
+  gap: 10px;
+  padding: 14px var(--rf-space-20) 4px;
+}
+
+.prices-stats div {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--rf-space-12) 14px;
+  border-radius: var(--rf-space-16);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-line);
+}
+
+.prices-stats span {
+  font-size: var(--rf-font-size-caption);
+  line-height: 15px;
+  font-weight: var(--rf-font-weight-medium);
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: var(--rf-color-ink-mute);
+}
+
+.prices-stats strong {
+  font-size: 26px;
+  font-weight: var(--rf-font-weight-semibold);
+  letter-spacing: -0.5px;
+}
+
+.prices-stats .is-accent {
+  color: var(--rf-color-accent);
+}
+
+.prices-list {
+  margin: var(--rf-space-16) var(--rf-space-16) 0;
+  border-radius: var(--rf-radius-container);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-line);
+  overflow: hidden;
+}
+
+.prices-station {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 18px;
+}
+
+.prices-list .prices-station + .prices-station {
+  border-top: 1px solid var(--rf-color-line);
+}
+
+/* Retailer badge; each sets its own --brand-bg and --brand-ink */
+.brand {
+  flex: none;
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: var(--brand-bg);
+  color: var(--brand-ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--rf-font-size-sm);
+  font-weight: var(--rf-font-weight-semibold);
+}
+
+.prices-name {
+  flex: 1;
+  min-width: 0;
+  font-size: 15.5px;
+  font-weight: var(--rf-font-weight-semibold);
+  letter-spacing: -0.2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.prices-area {
+  font-weight: var(--rf-font-weight-medium);
+  color: var(--rf-color-ink-mute);
+}
+
+.prices-name small {
+  display: block;
+  margin-top: 3px;
+  font-size: 12.5px;
+  font-weight: var(--rf-font-weight-regular);
+  letter-spacing: 0;
+  color: var(--rf-color-ink-sub);
+}
+
+.prices-name em {
+  font-style: normal;
+  font-weight: var(--rf-font-weight-semibold);
+  color: var(--rf-color-accent);
+}
+
+.prices-price {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+  font-size: 22px;
+  font-weight: var(--rf-font-weight-semibold);
+  letter-spacing: -0.9px;
+}
+
+.prices-price .unit {
+  font-size: 11px;
+  letter-spacing: 0;
+  opacity: 0.55;
+}
+
+.prices-price-big {
+  line-height: 1;
+  font-size: 64px;
+  letter-spacing: -2.5px;
+}
+
+.prices-price-big .unit {
+  font-size: 32px;
+}
+
+.prices-price-big .tail {
+  margin-left: 4px;
+}
+
+/* Pricing */
 .free-card {
   display: grid;
   grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
@@ -1192,92 +1478,104 @@ p {
   justify-content: center;
 }
 
-.list-mock {
+.free-vis {
+  position: relative;
+  min-height: 300px;
   border-radius: var(--rf-radius-container);
   border: 1px solid var(--rf-color-line);
   background: var(--rf-color-bg);
   overflow: hidden;
-}
-
-.list-row {
-  padding: 14px var(--rf-space-16);
   display: flex;
   align-items: center;
-  gap: var(--rf-space-12);
-  border-bottom: 1px solid var(--rf-color-line-subtle);
+  justify-content: center;
 }
 
-.list-icon {
-  width: 36px;
-  height: 36px;
-  border-radius: 10px;
+.free-vis > svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.free-pin {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 var(--rf-space-16);
+}
+
+.free-tag {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 26px 18px 22px;
+  border-radius: 22px;
   background: var(--rf-color-surface-2);
+  border: 1px solid var(--rf-color-line);
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+}
+
+.free-price {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.list-icon.is-cheapest {
-  background: var(--rf-color-accent-soft);
-}
-
-.list-name {
-  flex: 1;
-  font-size: var(--rf-font-size-sm);
+  align-items: baseline;
+  white-space: nowrap;
+  line-height: 1;
+  font-size: 52px;
   font-weight: var(--rf-font-weight-semibold);
+  letter-spacing: -2px;
 }
 
-.list-name span {
-  display: block;
-  font-size: var(--rf-font-size-caption);
-  font-weight: var(--rf-font-weight-regular);
-  color: var(--rf-color-ink-sub);
+.free-price .unit {
+  font-size: var(--rf-font-size-lg);
+  letter-spacing: 0;
+  opacity: 0.55;
 }
 
-.list-price {
-  font-size: 20px;
+.free-price .cents {
+  margin-left: 2px;
+}
+
+.free-rule {
+  width: 1px;
+  height: 32px;
+  background: #3a414c;
+}
+
+.free-label {
+  font-size: 15px;
   font-weight: var(--rf-font-weight-semibold);
-}
-
-.list-price .tail {
-  font-size: 13px;
-}
-
-.ad-slot {
-  margin: 14px var(--rf-space-16);
-  height: 54px;
-  border-radius: 10px;
-  border: 1.5px dashed var(--rf-color-line-strong);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: var(--rf-space-8);
-  font-size: var(--rf-font-size-caption);
-  font-weight: var(--rf-font-weight-semibold);
-  letter-spacing: 1px;
+  letter-spacing: 1.2px;
   text-transform: uppercase;
   color: var(--rf-color-ink-sub);
 }
 
-.ad-slot span {
-  padding: 2px 6px;
-  border-radius: 4px;
+.free-tip {
+  width: 18px;
+  height: 18px;
+  margin-top: -10px;
   background: var(--rf-color-surface-2);
-  font-size: 10px;
+  border-right: 1px solid var(--rf-color-line);
+  border-bottom: 1px solid var(--rf-color-line);
+  transform: rotate(45deg);
 }
 
-.list-tabs {
-  height: 56px;
-  border-top: 1px solid var(--rf-color-line-subtle);
+.free-fuels {
+  margin-top: 26px;
   display: flex;
-  justify-content: space-around;
-  align-items: center;
-  font-size: 11px;
-  color: var(--rf-color-ink-mute);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
 }
 
-.list-tabs .is-on {
-  color: var(--rf-color-accent);
+.free-fuels span {
+  padding: var(--rf-space-8) 14px;
+  border-radius: var(--rf-radius-full);
+  background: var(--rf-color-surface);
+  border: 1px solid var(--rf-color-line);
+  font-size: 13px;
+  font-weight: var(--rf-font-weight-semibold);
+  color: var(--rf-color-ink-sub);
 }
 
 /* FAQ: native <details>, styled as cards when open */
@@ -1773,7 +2071,7 @@ address {
   }
 
   .hero-copy {
-    padding: var(--rf-space-24) var(--rf-space-20) 0;
+    padding: 56px var(--rf-space-20) 0;
   }
 
   .hero-title {
@@ -1830,7 +2128,7 @@ address {
     top: auto;
     width: auto;
     max-width: 420px;
-    margin: -100px auto 0;
+    margin: -167px auto 0; /* top sits 22px below the marker, as on desktop */
   }
 
   .steps {
@@ -1865,6 +2163,20 @@ address {
   .wide-only {
     display: none;
   }
+
+  .wrap.route {
+    padding-left: 36px;
+    --pad: 72px;
+    --node-x: -33px;
+  }
+
+  .route::before {
+    left: 10px;
+  }
+
+  .free-card .eyebrow::before {
+    left: calc(var(--node-x) - 23px);
+  }
 }
 
 @media (max-width: 640px) {
@@ -1885,8 +2197,12 @@ address {
   }
 
   .pin-in,
-  .pin-settle,
-  .tag-pulse {
+  .pin-settle {
     animation: none;
+  }
+
+  .marker-pulse {
+    animation: none;
+    opacity: 0;
   }
 }

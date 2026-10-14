@@ -148,10 +148,10 @@
     </button>
   </div>
   <nav id="mobile-menu" class="mobile-menu" aria-label="Mobile">
-    <a class="navlink" href="#how">How it works<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="navlink" href="#pricing">Pricing<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="navlink" href="#faq">FAQ<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
-    <a class="navlink" href="#about">About<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a class="navlink" href="#how">How it works<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a class="navlink" href="#pricing">Pricing<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a class="navlink" href="#faq">FAQ<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
+    <a class="navlink" href="#about">About<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 6l6 6-6 6"/></svg></a>
     <a class="btn btn-primary" href="#download">Get the app</a>
     <p class="mobile-menu-note">Free to use, with one small ad. No account needed.</p>
   </nav>
@@ -163,18 +163,17 @@
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
       <p class="eyebrow">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg>
         UK fuel prices, nearby
       </p>
       <h1 id="hero-title" class="hero-title">Find the <span class="hl">cheapest</span> fuel near you.</h1>
-      <p class="lede">Refuelr maps the latest forecourt prices around you, highlights the cheapest station for your fuel, and shows what you'll save on a full tank.</p>
+      <p class="lede">Refuelr maps the latest forecourt prices around you, highlights the cheapest station for your fuel, and tells you how much it will cost to fill up.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#how">See how it works ↓</a>
         <!-- At launch, replace this link with Apple's official badge (unmodified, at least 40px tall):
         <a class="app-store-badge" href="https://apps.apple.com/gb/app/refuelr/idAPP_STORE_ID"><img src="assets/icons/app-store-badge.svg" alt="Download on the App Store" width="156" height="52"></a> -->
         <a class="btn btn-secondary" href="#download">Coming soon to the App Store</a>
       </div>
-      <p class="hero-note">Free to use, with one small ad. No account needed.</p>
     </div>
 
     <div class="hero-stage" role="img" aria-label="Illustrative map of Penge, SE20, seen in perspective and covered in fuel prices. The cheapest Unleaded E10 is £1.369, 0.4 miles away.">
@@ -242,7 +241,7 @@
           </g>
         </svg>
       </div>
-      <!-- Price pins and the "you are here" dot are placed by js/main.js -->
+      <!-- Price pins, the cheapest station's marker and the "you are here" dot are placed by js/main.js -->
       <div class="hero-pins" aria-hidden="true"></div>
       <div class="hero-fog" aria-hidden="true"></div>
       <div class="hero-fade" aria-hidden="true"></div>
@@ -276,7 +275,7 @@
 
   <!-- Why Refuelr -->
   <section class="section" id="why" aria-labelledby="why-title">
-    <div class="wrap">
+    <div class="wrap route route-first">
       <div class="section-head">
         <p class="eyebrow">Why Refuelr</p>
         <h2 id="why-title" class="h2">The questions the price sign doesn't answer.</h2>
@@ -294,10 +293,10 @@
         </article>
 
         <article class="card">
-          <div class="vis" aria-hidden="true">
-            <svg class="vis-route" viewBox="0 0 360 168" fill="none"><path d="M60 128 C120 128 160 60 290 66" stroke="#3a414c" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round"/></svg>
-            <div class="you-are-here" style="left: calc(50% - 120px); top: 128px"></div>
-            <div class="tag tag-cheap" style="left: calc(50% + 110px); top: 66px; font-size: 16px"><div class="tag-body"><span>£1.36<span class="tail">9</span></span></div><div class="tag-tip"></div></div>
+          <div class="vis vis-detour" aria-hidden="true">
+            <svg class="vis-route" viewBox="0 0 300 168" preserveAspectRatio="none" fill="none"><path d="M45 128 C105 128 140 62 225 66" stroke="#3a414c" stroke-width="3" stroke-dasharray="2 8" stroke-linecap="round" vector-effect="non-scaling-stroke"/></svg>
+            <div class="you-are-here" style="left: calc(50% - var(--d) * 0.7); top: 128px"></div>
+            <div class="tag tag-cheap" style="left: calc(50% + var(--d) * 0.5); top: 66px; font-size: 16px"><div class="tag-body"><span>£1.36<span class="tail">9</span></span></div><div class="tag-tip"></div></div>
             <div class="distance-chip">0.4 mi</div>
           </div>
           <h3 class="h3">Is it worth the detour?</h3>
@@ -323,7 +322,7 @@
 
   <!-- How it works -->
   <section class="section band" id="how" aria-labelledby="how-title">
-    <div class="wrap">
+    <div class="wrap route">
       <div class="section-head">
         <p class="eyebrow">How it works</p>
         <h2 id="how-title" class="h2">Three steps to a cheaper fill-up.</h2>
@@ -352,20 +351,62 @@
 
         <li class="step">
           <div class="phone">
-            <div class="screen" role="img" aria-label="App screen: a map of nearby stations with the cheapest highlighted">
-              <svg aria-hidden="true" viewBox="830 200 480 1040" width="240" height="520"><rect x="0" y="0" width="2400" height="1400" fill="#181b23"/><path d="M1060 290 L1200 280 L1215 385 L1075 395 Z" fill="#172a1f"/><path d="M1100 830 L1185 822 L1192 892 L1108 900 Z" fill="#172a1f"/><g stroke="#20242d" stroke-width="8" fill="none"><path d="M980 745 L1000 1010"/><path d="M1150 725 L1180 1010"/><path d="M1120 605 L1420 615"/><path d="M880 560 L900 425"/><path d="M1000 505 L1050 380"/><path d="M700 830 L1000 865"/><path d="M1060 560 L1240 575"/></g><g stroke="#333a46" stroke-width="16" fill="none" stroke-linecap="round"><path d="M640 690 C800 680 900 650 1000 660 C1150 675 1300 710 1500 730"/><path d="M900 655 C860 520 800 460 690 300"/><path d="M1260 702 C1280 500 1310 300 1380 -600"/></g><path d="M640 -600 C820 150 960 360 1080 470 C1250 620 1500 760 3000 1500" stroke="#434a56" stroke-width="7" fill="none"/><text x="905" y="612" fill="#9aa0aa" font-family="Rubik, sans-serif" font-weight="600" font-size="30" letter-spacing="6">PENGE</text></svg>
-              <div class="app-search"><svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>Penge, SE20</div>
-              <div class="app-fuel">Unleaded E10</div>
-              <div class="app-you"></div>
-              <div class="tag" style="left: 50px; top: 160px"><div class="tag-body"><span>£1.42<span class="tail">9</span></span></div><div class="tag-tip"></div></div>
-              <div class="tag" style="left: 196px; top: 170px"><div class="tag-body"><span>£1.44<span class="tail">9</span></span></div><div class="tag-tip"></div></div>
-              <div class="tag" style="left: 196px; top: 330px"><div class="tag-body"><span>£1.40<span class="tail">9</span></span></div><div class="tag-tip"></div></div>
-              <div class="tag tag-cheap" style="left: 130px; top: 262px"><div class="tag-body"><span>£1.36<span class="tail">9</span></span></div><div class="tag-tip"></div></div>
-              <div class="app-ad">Banner ad</div>
+            <div class="screen" role="img" aria-label="App screen: the Prices list, with the cheapest station first and nearby stations below">
+              <!-- Drawn at the app's 390pt width, then scaled to the 240px screen -->
+              <div class="prices">
+                <div class="prices-head">
+                  <div class="prices-title">Cheapest near you</div>
+                  <div class="prices-search">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
+                    <span>SE20 7BS &nbsp;·&nbsp; Penge</span>
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#3ee36b"/></svg>
+                  </div>
+                  <div class="prices-fuels">
+                    <span class="is-on">Unleaded E10</span><span>Super E5</span><span>Diesel</span>
+                    <span class="prices-filter"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="1.8" stroke-linecap="round"><path d="M3 5h18M6 12h12M10 19h4"/></svg>Filter</span>
+                  </div>
+                </div>
+                <div class="prices-best">
+                  <div class="prices-station">
+                    <span class="brand" style="--brand-bg: #2a5a39; --brand-ink: #d7ffe2">PF</span>
+                    <span class="prices-name">Penge Fuel<small>Open · 0.4 mi away</small></span>
+                  </div>
+                  <div class="prices-best-foot">
+                    <span class="prices-delta">−6.0p/L</span>
+                    <span class="prices-price prices-price-big"><span class="unit">£</span>1.36<span class="unit tail">9</span></span>
+                  </div>
+                </div>
+                <div class="prices-stats">
+                  <div><span>Area<br>avg</span><strong>£1.42</strong></div>
+                  <div><span>Per<br>tank</span><strong class="is-accent">~£3.00</strong></div>
+                </div>
+                <div class="prices-list">
+                  <div class="prices-station">
+                    <span class="brand" style="--brand-bg: #3b3f6e; --brand-ink: #e6e7ff">AF</span>
+                    <span class="prices-name">Anerley Filling Station <span class="prices-area">· Anerley</span><small>1.1 mi &nbsp;·&nbsp; <em>Save 2.0p/L</em></small></span>
+                    <span class="prices-price"><span class="unit">£</span>1.40<span class="unit tail">9</span></span>
+                  </div>
+                  <div class="prices-station">
+                    <span class="brand" style="--brand-bg: #6e3b3b; --brand-ink: #ffe6e6">EE</span>
+                    <span class="prices-name">Elmers End Services<small>1.6 mi &nbsp;·&nbsp; <em>Save 1.0p/L</em></small></span>
+                    <span class="prices-price"><span class="unit">£</span>1.41<span class="unit tail">9</span></span>
+                  </div>
+                  <div class="prices-station">
+                    <span class="brand" style="--brand-bg: #3b5a6e; --brand-ink: #e6f4ff">KH</span>
+                    <span class="prices-name">Kent House Garage <span class="prices-area">· Beckenham</span><small>1.9 mi</small></span>
+                    <span class="prices-price"><span class="unit">£</span>1.42<span class="unit tail">9</span></span>
+                  </div>
+                  <div class="prices-station">
+                    <span class="brand" style="--brand-bg: #6e5a3b; --brand-ink: #fff3e0">SH</span>
+                    <span class="prices-name">Sydenham Hill Fuel<small>2.3 mi</small></span>
+                    <span class="prices-price"><span class="unit">£</span>1.44<span class="unit tail">9</span></span>
+                  </div>
+                </div>
+              </div>
               <div class="app-tabs">
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
-                <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
+                <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
               </div>
             </div>
           </div>
@@ -394,11 +435,10 @@
                   <div class="btn btn-primary btn-route"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#1a3020" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="M13 6l6 6-6 6"/></svg>Route here</div>
                 </div>
               </div>
-              <div class="app-ad">Banner ad</div>
               <div class="app-tabs">
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
                 <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#7e838e" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
               </div>
             </div>
           </div>
@@ -412,30 +452,29 @@
 
   <!-- Pricing -->
   <section class="section" id="pricing" aria-labelledby="pricing-title">
-    <div class="wrap">
+    <div class="wrap route">
       <div class="free-card">
         <div>
           <p class="eyebrow">Pricing</p>
-          <h2 id="pricing-title" class="h2">Free to use, paid for by one small ad.</h2>
+          <h2 id="pricing-title" class="h2">Free to use.</h2>
           <ul class="ticks">
             <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>No account</li>
             <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>No subscription</li>
             <li><span class="tick"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12l4 4 10-10"/></svg></span>Every nearby price for Unleaded E10, Super E5 and Diesel</li>
           </ul>
         </div>
-        <div class="list-mock" aria-hidden="true">
-          <div class="list-row">
-            <div class="list-icon is-cheapest"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg></div>
-            <div class="list-name">Penge<span>0.4 mi</span></div>
-            <div class="list-price">£1.36<span class="tail">9</span></div>
+        <div class="free-vis" aria-hidden="true">
+          <svg viewBox="0 0 480 300" preserveAspectRatio="xMidYMid slice" fill="none"><path d="M-20 212 C120 196 260 220 500 184" stroke="#242932" stroke-width="16" stroke-linecap="round"/><path d="M150 -20 C170 90 200 180 230 320" stroke="#20242d" stroke-width="10"/><path d="M360 -20 C340 100 350 200 320 320" stroke="#20242d" stroke-width="8"/><path d="M60 -20 C80 100 70 220 110 320" stroke="#2b313b" stroke-width="4" stroke-dasharray="10 10"/><path d="M300 70 L400 60 L410 130 L310 140 Z" fill="#172a1f"/></svg>
+          <div class="free-pin">
+            <div class="free-tag">
+              <svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg>
+              <span class="free-price"><span class="unit">£</span>0<span class="unit cents">.00</span></span>
+              <span class="free-rule"></span>
+              <span class="free-label">Free</span>
+            </div>
+            <div class="free-tip"></div>
+            <div class="free-fuels"><span>Unleaded E10</span><span>Super E5</span><span>Diesel</span></div>
           </div>
-          <div class="list-row">
-            <div class="list-icon"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg></div>
-            <div class="list-name">Elmers End<span>1.1 mi</span></div>
-            <div class="list-price">£1.40<span class="tail">9</span></div>
-          </div>
-          <div class="ad-slot"><span>Ad</span>One small banner</div>
-          <div class="list-tabs"><span>Prices</span><span class="is-on">Map</span><span>Settings</span></div>
         </div>
       </div>
     </div>
@@ -443,7 +482,7 @@
 
   <!-- FAQ: if you change a question or answer, update the FAQPage JSON-LD in the <head> too -->
   <section class="section band" id="faq" aria-labelledby="faq-title">
-    <div class="wrap faq-grid">
+    <div class="wrap route faq-grid">
       <div class="faq-intro">
         <p class="eyebrow">FAQ</p>
         <h2 id="faq-title" class="h2">Common questions.</h2>
@@ -456,7 +495,7 @@
         </details>
         <details class="faq-item" open>
           <summary>Where do the prices come from?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary>
-          <p>Prices come from the UK government's <a class="textlink" href="https://www.gov.uk/guidance/fuel-finder" target="_blank" rel="noopener">Fuel Finder</a> scheme, which requires forecourts to publish their prices. Refuelr refreshes them every few hours.</p>
+          <p>Prices come from the UK government's <a class="textlink" href="https://www.gov.uk/government/collections/fuel-finder" target="_blank" rel="noopener">Fuel Finder</a> scheme, which requires forecourts to publish their prices. Refuelr refreshes them every few hours.</p>
         </details>
         <details class="faq-item">
           <summary>How up to date are the prices?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary>
@@ -504,7 +543,7 @@
 
   <!-- About -->
   <section class="section" id="about" aria-labelledby="about-title">
-    <div class="wrap split">
+    <div class="wrap route split">
       <div>
         <p class="eyebrow">About</p>
         <h2 id="about-title" class="h2">Built by SquaredMc.</h2>
@@ -571,7 +610,7 @@
       </nav>
     </div>
     <div class="footer-legal">
-      <p>Fuel price data: Contains public sector information licensed under the <a href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.</p>
+      <p>Fuel price data: Contains public sector information licensed under the <a class="textlink" href="https://www.nationalarchives.gov.uk/doc/open-government-licence/version/3/" target="_blank" rel="noopener">Open Government Licence v3.0</a>.</p>
       <p>© 2026 Refuelr, built by SquaredMc Ltd. Registered in England and Wales, company no. 16175464. Registered office: 17 Poole Road, Epsom, KT19 9SQ. Prices are reported by retailers and can change before you arrive. Refuelr does not guarantee any saving.</p>
     </div>
   </div>

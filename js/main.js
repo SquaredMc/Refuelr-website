@@ -39,7 +39,7 @@
 
   if (!layer) return;
 
-  // [map x, map y, price, cheapest]
+  // [map x, map y, price, cheapest]; the cheapest is drawn as a marker, not a price
   var PINS = [
     [1090, 700, 1.369, true], [930, 520, 1.429], [1240, 540, 1.449], [860, 800, 1.419],
     [1270, 860, 1.409], [700, 640, 1.439], [1480, 700, 1.459], [560, 900, 1.439],
@@ -81,12 +81,15 @@
       return { x: Math.round(q.x), y: Math.round(q.y), k: k, op: Math.max(0.35, Math.min(1, op)), price: d[2].toFixed(3), cheap: cheap };
     });
 
-    // The station card sits just below the cheapest pin (wide) or over the
-    // bottom of the stage (narrow). Drop any pin it or the chip would hide.
+    // The station card hangs 22px below the cheapest station's marker, centred
+    // on it (wide) or across the stage (narrow); .hero-card in styles.css places
+    // it the same way. Drop any pin it or the chip would hide.
     var c0 = pins.filter(function (p) { return p.cheap; })[0];
+    var cardL = Math.max(24, Math.min(w - 384, c0.x - 180));
+    var cardT = c0.y + 22;
     var covers = [wide
-      ? { l: Math.max(24, c0.x - 290), t: c0.y + 22, r: Math.max(24, c0.x - 290) + 360, b: c0.y + 22 + 240 }
-      : { l: 0, t: 340, r: w, b: Infinity }];
+      ? { l: cardL, t: cardT - 14, r: cardL + 360, b: cardT + 240 }
+      : { l: 0, t: cardT - 14, r: w, b: Infinity }];
     if (chip) {
       covers.push({ l: chip.offsetLeft, t: chip.offsetTop, r: chip.offsetLeft + chip.offsetWidth, b: chip.offsetTop + chip.offsetHeight });
     }
@@ -104,7 +107,7 @@
       });
     });
 
-    // Furthest first so nearer pins paint on top; the cheapest drops in last.
+    // Furthest first so nearer pins paint on top; the cheapest station's marker drops in last.
     pins.sort(function (a, b) { return (a.cheap - b.cheap) || (a.y - b.y); });
 
     var you = project(YOU[0], YOU[1]);
@@ -112,15 +115,12 @@
 
     pins.forEach(function (p, i) {
       var style = 'left: ' + p.x + 'px; top: ' + p.y + 'px; --k: ' + p.k.toFixed(3);
-      var price = '<span>£' + p.price.slice(0, -1) + '<span class="tail">' + p.price.slice(-1) + '</span></span>';
       if (p.cheap) {
         if (animate) style += '; animation-delay: ' + (pins.length * 70 + 250) + 'ms';
-        html += '<div class="tag tag-cheap' + (animate ? ' pin-settle' : '') + '" style="' + style + '">' +
-          '<div class="tag-body"><span class="tag-pulse"></span>' +
-          '<svg viewBox="0 0 24 24" fill="none" stroke="#1a3020" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">' + PUMP + '</svg>' +
-          price + '<span class="tag-rule"></span><span class="tag-label">Cheapest</span></div>' +
-          '<div class="tag-tip"></div></div>';
+        html += '<div class="hero-marker' + (animate ? ' pin-settle' : '') + '" style="' + style + '">' +
+          '<span class="marker-pulse"></span><span class="marker-pulse"></span><span class="marker-dot"></span></div>';
       } else {
+        var price = '<span>£' + p.price.slice(0, -1) + '<span class="tail">' + p.price.slice(-1) + '</span></span>';
         style += '; --op: ' + p.op.toFixed(2);
         if (animate) style += '; animation-delay: ' + i * 70 + 'ms';
         html += '<div class="tag' + (animate ? ' pin-in' : '') + '" style="' + style + '">' +
