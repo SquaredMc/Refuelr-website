@@ -410,7 +410,7 @@ p {
   height: 16px;
   border-radius: 50%;
   background: var(--node-bg);
-  border: 3px solid var(--rf-color-ink-sub);
+  border: 3px solid var(--rf-color-accent);
 }
 
 /* The Pricing label sits inside the card, so step back over its padding and border */
@@ -561,7 +561,7 @@ p {
   font-size: 64px;
   line-height: 1.04;
   letter-spacing: -1.8px;
-  margin: 18px 0 0;
+  margin: 0;
 }
 
 .hero-title .hl {
@@ -1175,7 +1175,7 @@ p {
   justify-content: space-around;
   align-items: flex-start;
   font-size: 7px;
-  color: var(--rf-color-ink-mute);
+  color: var(--rf-color-ink);
 }
 
 .app-tabs span {
@@ -1222,11 +1222,28 @@ p {
   gap: 10px;
 }
 
-.prices-search span {
+.prices-search > span:first-of-type {
   flex: 1;
   font-size: 15px;
   font-weight: var(--rf-font-weight-medium);
   letter-spacing: -0.2px;
+}
+
+.prices-live {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 11px;
+  font-weight: var(--rf-font-weight-semibold);
+  color: var(--rf-color-ink-mute);
+}
+
+.prices-live::before {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--rf-color-accent);
 }
 
 .prices-fuels {
@@ -1263,7 +1280,7 @@ p {
 .prices-best {
   margin: 14px var(--rf-space-20) 0;
   padding: 18px;
-  border-radius: var(--rf-radius-pill);
+  border-radius: var(--rf-radius-container);
   background: var(--rf-color-surface);
   border: 1.5px solid rgba(62, 227, 107, 0.65);
   box-shadow: 0 8px 28px rgba(62, 227, 107, 0.2);
@@ -1307,44 +1324,45 @@ p {
   font-weight: var(--rf-font-weight-semibold);
 }
 
-.prices-stats {
-  display: flex;
-  gap: 10px;
-  padding: 14px var(--rf-space-20) 4px;
-}
-
-.prices-stats div {
-  flex: 1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: var(--rf-space-12) 14px;
-  border-radius: var(--rf-space-16);
+.prices-tank {
+  margin: 14px var(--rf-space-20) 4px;
+  padding: var(--rf-space-16) 18px;
+  border-radius: var(--rf-radius-container);
   background: var(--rf-color-surface);
   border: 1px solid var(--rf-color-line);
+  display: flex;
+  align-items: center;
 }
 
-.prices-stats span {
-  font-size: var(--rf-font-size-caption);
-  line-height: 15px;
+.prices-tank > span {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 2px;
+  font-size: 22px;
+  font-weight: var(--rf-font-weight-semibold);
+  letter-spacing: -0.9px;
+}
+
+.prices-tank .prices-tank-label,
+.prices-tank small {
+  font-size: 13px;
+  line-height: 16px;
   font-weight: var(--rf-font-weight-medium);
   letter-spacing: 0.8px;
   text-transform: uppercase;
   color: var(--rf-color-ink-mute);
 }
 
-.prices-stats strong {
-  font-size: 26px;
-  font-weight: var(--rf-font-weight-semibold);
-  letter-spacing: -0.5px;
-}
-
-.prices-stats .is-accent {
-  color: var(--rf-color-accent);
+.prices-tank .prices-tank-label {
+  flex: none;
+  width: 92px;
+  display: block;
 }
 
 .prices-list {
-  margin: var(--rf-space-16) var(--rf-space-16) 0;
+  margin: 14px var(--rf-space-20) 0;
   border-radius: var(--rf-radius-container);
   background: var(--rf-color-surface);
   border: 1px solid var(--rf-color-line);
@@ -2077,7 +2095,6 @@ address {
   .hero-title {
     font-size: 42px;
     letter-spacing: -1px;
-    margin-top: 14px;
   }
 
   .hero-ctas {

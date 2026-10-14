@@ -85,7 +85,7 @@
     {
       "@type": "Question",
       "name": "Does it work everywhere in the UK?",
-      "acceptedAnswer": { "@type": "Answer", "text": "Refuelr shows forecourts across the UK that report their prices to Fuel Finder. Search within 2, 5, 10 or 20 miles of where you are, or of any postcode or town." }
+      "acceptedAnswer": { "@type": "Answer", "text": "Refuelr shows forecourts across the UK that report their prices to Fuel Finder. Search within 1, 2, 5, 10 or 20 miles of where you are, or of any postcode or town." }
     },
     {
       "@type": "Question",
@@ -133,14 +133,14 @@
 <header class="site-header">
   <div class="wrap header-row">
     <a class="logo" href="#top" aria-label="Refuelr home">
-      <img src="assets/icons/logo.svg" alt="Refuelr" width="163" height="28">
+      <img src="assets/icons/logo.svg" alt="Refuelr" width="122" height="28">
     </a>
     <nav class="nav" aria-label="Main">
       <a class="navlink" href="#how">How it works</a>
       <a class="navlink" href="#pricing">Pricing</a>
       <a class="navlink" href="#faq">FAQ</a>
       <a class="navlink" href="#about">About</a>
-      <a class="btn btn-secondary btn-small" href="#download">Get the app</a>
+      <a class="btn btn-primary btn-small" href="#download">Get the app</a>
     </nav>
     <button class="menu-toggle" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu">
       <svg class="icon-open" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M4 7h16"/><path d="M4 12h16"/><path d="M4 17h16"/></svg>
@@ -162,12 +162,8 @@
   <!-- Hero -->
   <section class="hero" aria-labelledby="hero-title">
     <div class="hero-copy">
-      <p class="eyebrow">
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg>
-        UK fuel prices, nearby
-      </p>
       <h1 id="hero-title" class="hero-title">Find the <span class="hl">cheapest</span> fuel near you.</h1>
-      <p class="lede">Refuelr maps the latest forecourt prices around you, highlights the cheapest station for your fuel, and tells you how much it will cost to fill up.</p>
+      <p class="lede">Refuelr maps the latest forecourt prices around you, highlights the cheapest &amp;&nbsp;nearest stations for your fuel, and tells you how much it will cost to fill up.</p>
       <div class="hero-ctas">
         <a class="btn btn-primary" href="#how">See how it works ↓</a>
         <!-- At launch, replace this link with Apple's official badge (unmodified, at least 40px tall):
@@ -256,7 +252,7 @@
           </div>
           <div class="station-info">
             <p class="station-name">Cheapest Unleaded E10</p>
-            <p class="station-meta">Penge · 0.4 mi · Open</p>
+            <p class="station-meta">Penge · 0.4 mi away</p>
           </div>
           <p class="station-price"><span aria-hidden="true"><span class="unit">£</span><span class="big">1.36</span><span class="unit tail">9</span></span><span class="sr-only">£1.369 a litre</span></p>
         </div>
@@ -330,28 +326,30 @@
       <ol class="steps">
         <li class="step">
           <div class="phone">
-            <div class="screen screen-setup" role="img" aria-label="App screen: choose your fuel and car size">
+            <div class="screen screen-setup" role="img" aria-label="App screen: choose your fuel, car size and search radius">
               <div class="setup-progress"><span></span><span></span><span></span></div>
               <div class="setup-kicker">Your car</div>
               <div class="setup-title">Tell us about your car.</div>
-              <div class="setup-text">We'll show your fuel first and estimate what you save per tank.</div>
+              <div class="setup-text">We'll show your fuel first and what a tank will cost you.</div>
               <div class="setup-label">Fuel</div>
               <div class="setup-chips"><span class="is-on">Unleaded E10</span><span>Super E5</span><span>Diesel</span></div>
               <div class="setup-label">Car size <span>(optional)</span></div>
               <div class="setup-chips"><span>Small</span><span class="is-on">Medium</span><span>Large / SUV</span><span>Big SUV / van</span><span>Not sure</span></div>
               <div class="setup-hint">e.g. Focus, Golf, Astra · about 50L</div>
+              <div class="setup-label">Search radius</div>
+              <div class="setup-chips"><span>1 mi</span><span>2 mi</span><span class="is-on">5 mi</span><span>10 mi</span><span>20 mi</span></div>
               <div class="setup-cta">Get started</div>
               <div class="setup-skip">Skip for now</div>
             </div>
           </div>
           <div class="step-num" aria-hidden="true">1</div>
           <h3 class="h3">Tell us about your car.</h3>
-          <p class="copy">Pick your fuel and tank size. It takes ten seconds and stays on your phone.</p>
+          <p class="copy">Pick your fuel, tank size and search radius. It takes ten seconds and stays on your phone.</p>
         </li>
 
         <li class="step">
           <div class="phone">
-            <div class="screen" role="img" aria-label="App screen: the Prices list, with the cheapest station first and nearby stations below">
+            <div class="screen" role="img" aria-label="App screen: the Prices list, with the cheapest station first, the cost of a tank, and nearby stations below">
               <!-- Drawn at the app's 390pt width, then scaled to the 240px screen -->
               <div class="prices">
                 <div class="prices-head">
@@ -359,6 +357,7 @@
                   <div class="prices-search">
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#b5b9c1" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg>
                     <span>SE20 7BS &nbsp;·&nbsp; Penge</span>
+                    <span class="prices-live">Live</span>
                     <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2" fill="#3ee36b"/></svg>
                   </div>
                   <div class="prices-fuels">
@@ -369,16 +368,19 @@
                 <div class="prices-best">
                   <div class="prices-station">
                     <span class="brand" style="--brand-bg: #2a5a39; --brand-ink: #d7ffe2">PF</span>
-                    <span class="prices-name">Penge Fuel<small>Open · 0.4 mi away</small></span>
+                    <span class="prices-name">Penge Fuel<small>0.4 mi away</small></span>
                   </div>
                   <div class="prices-best-foot">
                     <span class="prices-delta">−6.0p/L</span>
                     <span class="prices-price prices-price-big"><span class="unit">£</span>1.36<span class="unit tail">9</span></span>
                   </div>
                 </div>
-                <div class="prices-stats">
-                  <div><span>Area<br>avg</span><strong>£1.42</strong></div>
-                  <div><span>Per<br>tank</span><strong class="is-accent">~£3.00</strong></div>
+                <!-- Cheapest price × the 50L tank picked in step 1 -->
+                <div class="prices-tank">
+                  <span class="prices-tank-label">Cost<br>per<br>tank (£)</span>
+                  <span><small>1/4</small>17.1</span>
+                  <span><small>1/2</small>34.2</span>
+                  <span><small>Full</small>68.5</span>
                 </div>
                 <div class="prices-list">
                   <div class="prices-station">
@@ -404,9 +406,9 @@
                 </div>
               </div>
               <div class="app-tabs">
-                <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
+                <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
               </div>
             </div>
           </div>
@@ -428,7 +430,7 @@
                 <div class="station-card">
                   <div class="station-head">
                     <div class="station-icon"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 21V5a2 2 0 012-2h6a2 2 0 012 2v16"/><path d="M3 21h14"/><path d="M15 9h2.5a1.5 1.5 0 011.5 1.5V16a1.5 1.5 0 003 0V8l-3-3"/></svg></div>
-                    <div class="station-info"><div class="station-name">Cheapest Unleaded E10</div><div class="station-meta">Penge · 0.4 mi · Open</div></div>
+                    <div class="station-info"><div class="station-name">Cheapest Unleaded E10</div><div class="station-meta">Penge · 0.4 mi away</div></div>
                     <div class="station-price"><span class="unit">£</span><span class="big">1.36</span><span class="unit tail">9</span></div>
                   </div>
                   <div class="saving"><span class="saving-text">Saves 6.0p/L vs area avg</span><span class="saving-tank">~£3.00/tank</span></div>
@@ -436,9 +438,9 @@
                 </div>
               </div>
               <div class="app-tabs">
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
-                <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#3ee36b" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
-                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#8a8f9a" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M4 12h16M4 18h16"/></svg>Prices</span>
+                <span class="is-on"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 4L3 6v14l6-2 6 2 6-2V4l-6 2-6-2z"/><path d="M9 4v14M15 6v14"/></svg>Map</span>
+                <span><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><circle cx="12" cy="12" r="8"/></svg>Settings</span>
               </div>
             </div>
           </div>
@@ -507,7 +509,7 @@
         </details>
         <details class="faq-item">
           <summary>Does it work everywhere in the UK?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary>
-          <p>Refuelr shows forecourts across the UK that report their prices to Fuel Finder. Search within 2, 5, 10 or 20 miles of where you are, or of any postcode or town.</p>
+          <p>Refuelr shows forecourts across the UK that report their prices to Fuel Finder. Search within 1, 2, 5, 10 or 20 miles of where you are, or of any postcode or town.</p>
         </details>
         <details class="faq-item">
           <summary>Do you track my location?<span class="faq-icon" aria-hidden="true"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#fbfbfb" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14"/><path class="faq-plus" d="M12 5v14"/></svg></span></summary>
@@ -552,7 +554,7 @@
       </div>
       <div class="board-wrap" aria-hidden="true">
         <div class="board">
-          <div class="board-logo"><img src="assets/icons/logo.svg" alt="" width="140" height="24"></div>
+          <div class="board-logo"><img src="assets/icons/logo.svg" alt="" width="105" height="24"></div>
           <div class="board-rows">
             <div class="board-row is-cheapest">Unleaded E10<strong>136.9</strong></div>
             <div class="board-row">Super E5<strong>151.9</strong></div>
@@ -596,7 +598,7 @@
   <div class="wrap">
     <div class="footer-row">
       <a class="logo" href="#top" aria-label="Refuelr home">
-        <img src="assets/icons/logo.svg" alt="Refuelr" width="163" height="28">
+        <img src="assets/icons/logo.svg" alt="Refuelr" width="122" height="28">
       </a>
       <nav aria-label="Footer">
         <ul class="footer-links">
