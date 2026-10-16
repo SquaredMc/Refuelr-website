@@ -25,7 +25,7 @@ support.html      Support page
 css/tokens.css    Design tokens (app colours and fonts, plus the homepage design's extra colours)
 css/styles.css    Styles: shared base, header and footer, homepage sections, legal pages
 js/main.js        Mobile menu, and the price pins on the hero map
-assets/icons/     logo.svg, logo-white.svg, app-icon.png, favicon.svg, favicon-32.png, apple-touch-icon.png
+assets/icons/     logo.png, logo-white.svg, app-icon.png, favicon.svg, favicon-32.png, apple-touch-icon.png
 assets/og-image.png  1200×630 social preview
 app-ads.txt       AdMob seller verification (same SquaredMc publisher ID as Netti)
 robots.txt, sitemap.xml, .nojekyll
